@@ -8,27 +8,27 @@ function NewScrapCompletedQuests() {
 	sheetData.forEach(async (item, position) => {
 		if (position === 0) {
 			QuestsNames.push({
+				index: letterValue('d'),
+				name: getQuestNameRegex.exec(item[letterValue('d')])[3]
+			});
+			QuestsNames.push({
+				index: letterValue('e'),
+				name: getQuestNameRegex.exec(item[letterValue('e')])[3]
+			});
+			QuestsNames.push({
+				index: letterValue('f'),
+				name: getQuestNameRegex.exec(item[letterValue('f')])[3]
+			});
+			QuestsNames.push({
+				index: letterValue('g'),
+				name: getQuestNameRegex.exec(item[letterValue('g')])[3]
+			});
+			QuestsNames.push({
 				index: letterValue('h'),
 				name: getQuestNameRegex.exec(item[letterValue('h')])[3]
 			});
-			QuestsNames.push({
-				index: letterValue('i'),
-				name: getQuestNameRegex.exec(item[letterValue('i')])[3]
-			});
-			QuestsNames.push({
-				index: letterValue('j'),
-				name: getQuestNameRegex.exec(item[letterValue('j')])[3]
-			});
-			QuestsNames.push({
-				index: letterValue('k'),
-				name: getQuestNameRegex.exec(item[letterValue('k')])[3]
-			});
-			QuestsNames.push({
-				index: letterValue('l'),
-				name: getQuestNameRegex.exec(item[letterValue('l')])[3]
-			});
 		} else {
-			const url = item[letterValue('g')];
+			const url = item[letterValue('c')];
 
 			const websiteContent = await UrlFetchApp.fetch(url).getContentText();
 
@@ -50,29 +50,27 @@ function SendEmails() {
 	sheetData.forEach(async (item, position) => {
 		if (position === 0) {
 			QuestsNames.push({
+				index: letterValue('d'),
+				name: getQuestNameRegex.exec(item[letterValue('d')])[3]
+			});
+			QuestsNames.push({
+				index: letterValue('e'),
+				name: getQuestNameRegex.exec(item[letterValue('e')])[3]
+			});
+			QuestsNames.push({
+				index: letterValue('f'),
+				name: getQuestNameRegex.exec(item[letterValue('f')])[3]
+			});
+			QuestsNames.push({
+				index: letterValue('g'),
+				name: getQuestNameRegex.exec(item[letterValue('g')])[3]
+			});
+			QuestsNames.push({
 				index: letterValue('h'),
 				name: getQuestNameRegex.exec(item[letterValue('h')])[3]
 			});
-			QuestsNames.push({
-				index: letterValue('i'),
-				name: getQuestNameRegex.exec(item[letterValue('i')])[3]
-			});
-			QuestsNames.push({
-				index: letterValue('j'),
-				name: getQuestNameRegex.exec(item[letterValue('j')])[3]
-			});
-			QuestsNames.push({
-				index: letterValue('k'),
-				name: getQuestNameRegex.exec(item[letterValue('k')])[3]
-			});
-			QuestsNames.push({
-				index: letterValue('l'),
-				name: getQuestNameRegex.exec(item[letterValue('l')])[3]
-			});
 		} else {
-			let message = `You have finished ${
-				item[letterValue('c')]
-			} Quests in Total!<br>Quests Breakdown: <br><br>`;
+			let message = `You have finished these Quests in Total!<br>Quests Breakdown: <br><br>`;
 
 			QuestsNames.forEach(quest => {
 				const questName = quest.name;
@@ -80,8 +78,8 @@ function SendEmails() {
 				message += `${questName}: ${isCompleted ? 'Complete' : 'Not Completed'}<br>`;
 			});
 			MailApp.sendEmail({
-				to: 'lpanjwani@outlook.com',
-				subject: 'Quests Tracking Updates | DSC @ MDX',
+				to: 'johnaziz269@gmail.com',
+				subject: 'Quests Tracking Updates | DSC @ MAE',
 				htmlBody: message
 			});
 		}
